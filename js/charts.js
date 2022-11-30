@@ -1,4 +1,4 @@
-const data_file = "samples.json";
+const data_file = "/js/samples.json";
 
 function init() {
     // Grab a reference to the dropdown select element
