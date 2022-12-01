@@ -1,9 +1,11 @@
+const data_file = "js/samples.json";
+
 function init() {
     // Grab a reference to the dropdown select element
     var selector = d3.select("#selDataset");
 
     // Use the list of sample names to populate the select options
-    d3.json("/data/samples.json").then((data) => {
+    d3.json(data_file).then((data) => {
         var sampleNames = data.names;
 
         sampleNames.forEach((sample) => {
@@ -31,7 +33,7 @@ function optionChanged(newSample) {
 
 // Demographics Panel 
 function buildMetadata(sample) {
-    d3.json("/data/samples.json").then((data) => {
+    d3.json(data_file).then((data) => {
         const metadata = data.metadata;
         // Filter the data for the object with the desired sample number
         const resultArray = metadata.filter(sampleObj => sampleObj.id == sample);
@@ -161,7 +163,7 @@ function buildGaugeChart(data, selectedID) {
 // 1. Create the buildCharts function.
 function buildCharts(selectedID) {
     // 2. Use d3.json to load and retrieve the samples.json file
-    d3.json("/data/samples.json").then((data) => {
+    d3.json(data_file).then((data) => {
         console.log(data);
 
         // 3. Create a variable that holds the samples array.
